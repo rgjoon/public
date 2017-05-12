@@ -2,8 +2,45 @@
 <html>
 	<head>
 		<title>Food Chain Magnate</title>
+		<link rel="stylesheet" type="text/css" href="css/fcm.css"/>
 	</head>
 	<body>
-		<h1>Food Chain Magnate</h1>
+		<div style="max-width: 1024px;background: #f9f9f9">
+			<div class="border-bottom">
+				<span>Font Size: </span>
+				<div id="font-bigger-button" class="button">+</div>
+				<div id="font-smaller-button" class="button">-</div>
+			</div>
+			<div id="chain-button-container" class="border-bottom"></div>
+			<div id="money-button-container"></div>
+		</div>
+
+		<!-- load scripts -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/fcm-component.js"></script>
+		<script src="js/fcm.js"></script>
+		<script>
+			$(function() {
+				var config = {
+					fontSize: 1.0
+				}
+
+				var updateFontSize = function() {
+					$('body').css('font-size', config.fontSize + 'em');
+				}
+
+				$('#font-bigger-button').click(function() {
+					config.fontSize += 0.3;
+
+					updateFontSize();
+				})
+
+				$('#font-smaller-button').click(function() {
+					config.fontSize -= 0.3;
+
+					updateFontSize();
+				})
+			})
+		</script>
 	</body>
 </html>
