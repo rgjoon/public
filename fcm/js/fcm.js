@@ -1,0 +1,7 @@
+window.FCM = (function() {
+	
+
+	return {
+
+	};
+})();

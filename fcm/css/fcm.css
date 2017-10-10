@@ -1,1 +1,6 @@
-
+.money-button {
+	display: inline-block;
+	background: #090;
+	width: 30px;
+	text-align: center;
+}
