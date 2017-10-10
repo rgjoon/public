@@ -1,6 +1,10 @@
+.text {
+	padding: 5px 0;
+}
+
 .money-button {
 	display: inline-block;
 	background: #090;
-	width: 30px;
+	width: 35px;
 	text-align: center;
 }
