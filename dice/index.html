@@ -2,13 +2,86 @@
 <html>
     <head>
         <title>DICE</title>
-        <script src="https://kit.fontawesome.com/a4f3aaa165.js" crossorigin="anonymous"></script>
+        <script src="./font-awesome-free.js" crossorigin="anonymous"></script>
+
+        <style>
+            div.die {
+                display: inline-block;
+                padding: 5px;
+            }
+
+            div.die i {
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
-        <div id="root"></div>
-
-        <div>
-            <i class="fas fa-dice-one"></i>
+        <div id="root">
+            <div>
+                <button id="all-reroll-button">Reroll</button>
+            </div>
         </div>
+        
+        <script>
+            const diceConfig = {
+                names: [
+                    'fas fa-dice-one',
+                    'fas fa-dice-two',
+                    'fas fa-dice-three',
+                    'fas fa-dice-four',
+                    'fas fa-dice-five',
+                    'fas fa-dice-six'
+                ],
+
+                size: '100px'
+            }
+        </script>
+
+        <script>
+            class Die {
+                constructor(options) {
+                    this.number = this.random();
+                    this.options = options || {};
+
+                    this.container = document.createElement('div');
+                    this.container.setAttribute('class', 'die');
+                    this.container.addEventListener('click', () => {
+                        this.roll();
+                    })
+
+                    this.icon = this.container.appendChild(document.createElement('i'));
+                    this.icon.setAttribute('class', diceConfig.names[this.number]);
+                    this.icon.style.setProperty('font-size', diceConfig.size);
+                    this.icon.style.setProperty('color', this.options.color || 'black');
+                }
+
+                appendTo(element) {
+                    element.appendChild(this.container);
+                }
+
+                random() {
+                    return Math.floor(Math.random() * 6);
+                }
+
+                roll() {
+                    this.number = this.random();
+                    this.icon.setAttribute('class', diceConfig.names[this.number]);
+                }
+            }
+        </script>
+
+        <script>
+            const dice = [];
+
+            for( let i = 0; i < 10; i++ ) {
+                dice[i] = new Die();
+                dice[i].appendTo(document.getElementById('root'));
+            }
+
+            const rerollButton = document.getElementById('all-reroll-button');
+            rerollButton.addEventListener('click', () => {
+                dice.forEach(die => (die.roll()))
+            })
+        </script>
     </body>
 </html>
