@@ -1,0 +1,29 @@
+.action-room {
+    padding: 10px;
+    background-color: #ddd;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.action-room .action-title {
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.action-slot {
+    display: inline-block;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+.action-slot.lock {
+    background-color: #555;
+    color: white;
+}
