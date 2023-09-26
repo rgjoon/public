@@ -59,7 +59,6 @@
     <body>
         <div id="main">
             <div id="rooms"></div>
-            <button id="lock-slots" class="button">LOCK ACTION SLOTS</button>
             <div id="theater-card">
                 <div>
                     <table class="theater-layout">
@@ -86,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <button id="initial-trick" class="button">INITIAL TRICK</button>
+            <button id="initial-trick" class="button">Next Settings</button>
         </div>
 
         <script src="./trickerion-duel.js"></script>
@@ -94,15 +93,14 @@
         <script>
             const rooms = makeRooms(document.getElementById('rooms'));
 
-            const lockButton = document.getElementById('lock-slots');
-            lockButton.onclick = function() {
+            const initialTrickButton = document.getElementById('initial-trick');
+            initialTrickButton.onclick = function() {
                 rooms.forEach(room => {
                     room.lockSlots();
                 })
+                
+                makeInitialTrick();
             }
-
-            const initialTrickButton = document.getElementById('initial-trick');
-            initialTrickButton.onclick = makeInitialTrick
         </script>
     </body>
 </html>
