@@ -1,7 +1,7 @@
 const ROOM_INFO = [
     {
-        type: 'residence',
-        title: 'Residence'
+        type: 'downtown',
+        title: 'Downtown'
     },
     {
         type: 'market-row',
