@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Trickerion Duel</title>
+        
+        <link 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer" 
+        />
+
+        <link rel="stylesheet" type="text/css" href="./trickerion-duel.css" />
+
+        <style>
+            html, body {
+                font-family: sans-serif;
+            }
+            
+            .button {
+                width: 100%;
+                padding: .5em;
+                background-color: #999;
+                color: white;
+                border: none;
+                font-size: 1.5em;
+            }
+
+            #theater-card {
+                display: flex;
+            }
+
+            .theater-layout {
+                width: 100%;
+            }
+
+            .theater-layout td {
+                height: 50px;
+                background-color: #efefef;
+                text-align: center;
+            }
+
+            #theater-card > div {
+                width: 50%;
+                padding: 10px;
+            }
+
+            #eye-img {
+                width: 50px;
+            }
+
+            i {
+                margin: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="rooms"></div>
+            <button id="lock-slots" class="button">LOCK ACTION SLOTS</button>
+            <div id="theater-card">
+                <div>
+                    <table class="theater-layout">
+                        <tbody>
+                            <tr>
+                                <td id="cell-0">1</td>
+                                <td id="cell-1">2</td>
+                            </tr>
+                            <tr>
+                                <td id="cell-2">3</td>
+                                <td id="cell-3">4</td>
+                            </tr>
+                            <tr>
+                                <td id="cell-4">5</td>
+                                <td id="cell-5">6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div id="trick-dir-container" style="display:flex;align-items:center;color:#555;">
+                        <i class="fa-solid fa-eye" style="font-size:4em;"></i>
+                        <i id="trick-dir"></i>
+                    </div>
+                </div>
+            </div>
+            <button id="initial-trick" class="button">INITIAL TRICK</button>
+        </div>
+
+        <script src="./trickerion-duel.js"></script>
+
+        <script>
+            const rooms = makeRooms(document.getElementById('rooms'));
+
+            const lockButton = document.getElementById('lock-slots');
+            lockButton.onclick = function() {
+                rooms.forEach(room => {
+                    room.lockSlots();
+                })
+            }
+
+            const initialTrickButton = document.getElementById('initial-trick');
+            initialTrickButton.onclick = makeInitialTrick
+        </script>
+    </body>
+</html>
