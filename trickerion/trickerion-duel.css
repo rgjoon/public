@@ -27,3 +27,14 @@
     background-color: #555;
     color: white;
 }
+
+.trick-dir-container {
+    display: flex;
+    align-items: center;
+}
+
+.trick-dir-container > div {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
