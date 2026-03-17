@@ -1,10 +1,96 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Power Grid - Robots</title>
+
+        <script src="./puzzle-tiles.js"></script>
+
+        <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            #main {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+            }
+
+            #puzzle-tile-container {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .puzzle-tile {
+                margin: 0 10px 10px 10px;
+                padding: 10px;
+                background-color: #efefef;
+                text-align: center;
+                flex-grow: 1;
+            }
+
+            .puzzle-tile:first-child {
+                margin-top: 10px;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                padding: .5rem 1rem;
+            }
+
+            header > #title {
+                flex-grow: 1;
+            }
+
+            footer {
+                padding: 1rem;
+                background-color: #ddd;
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+            }
+
+            select#language {
+                padding: .2rem .5rem;
+            }
+
+            button {
+                padding: .5rem 1rem;
+                background-color: #999;
+                color: #fff;
+                border: none;
+            }
+        </style>
     </head>
     <body>
-        <h1>Power Grid - Robots</h1>
+        <div id="main">
+            <header>
+                <div id="title">Power Grid - The Robots</div>
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="ko">한글</option>
+                </select>
+            </header>
+            <div id="puzzle-tile-container">
+                <div id="city" class="puzzle-tile"></div>
+                <div id="phase2" class="puzzle-tile"></div>
+                <div id="phase3" class="puzzle-tile"></div>
+                <div id="phase4" class="puzzle-tile"></div>
+                <div id="ability" class="puzzle-tile"></div>
+            </div>
+            <footer>
+                <button id="suffle-button">SUFFLE</button>
+            </footer>
+        </div>
+
+        <script src="./app.js"></script>
     </body>
 </html>
