@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chaos Bag</title>
-  </head>
-  <body>
-    <h3>Chaos Bag</h3>
-  </body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Chaos Bag</title>
+        <style>
+            body {
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h3>Chaos Bag</h3>
+
+        <script>
+            const tokens = [
+                'p1', 'zero', 'm1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'a', 'b', 'c', 'd', 'e', 'f'
+            ].map(name => `./token-img/token_${name}.png`);
+
+            for( const path of tokens ) {
+                const img = document.body.appendChild(document.createElement('img'));
+                img.src = path;
+                img.style.width = '80px';
+                img.style.height = '80px';
+            }
+        </script>
+    </body>
 </html>
